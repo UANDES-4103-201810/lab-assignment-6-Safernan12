@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 		if user && user.password == login_params[:password]
 		  session[:current_user_id] = user.id
       flash[:notice] = "You are now logged in!"
-      redirect_to users_id_url(user.id)
+      redirect_to user_url(session[:current_user_id])
     else
 
       flash[:notice] = "Couldn't log in"

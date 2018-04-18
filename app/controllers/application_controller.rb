@@ -10,8 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_user_logged_in?
-	#complete this method
-  	logged_in = false
+	 if session[:current_user_id]
+  	logged_in = true
+   else
+     logged_in = false
+   end
 	if logged_in then true else redirect_to root_path end 
   end
 end
