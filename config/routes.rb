@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   resources :users
 
   root :to => 'sessions#new'
-
+  	
   post '/login',   to: 'sessions#create', as: :log_in
   delete '/log_out' => 'sessions#destroy', as: :log_out
 
   get '/sign_in' => 'registrations#new', as: :registrations
-  post '/sign_in' => 'registrations#create', as: :sign_in
-
+  post '/sign_in' => 'registrations#create', as: :sign_in 
+  
+  get '/users/:id', to: 'users#show', as: :users_id
 end
